@@ -7,7 +7,7 @@
 		"strictNullChecks": true,
 		"declaration": true,
 		"outDir": "build",
-		"module": "commonjs",
+		"module": "commonjs"
 	},
 	"include": ["src/**/*"],
 	"exclude": []

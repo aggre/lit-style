@@ -1,4 +1,5 @@
 # lit-style
+
 PostCSS preprocessor for Tagged Templates
 
 ## Installation
@@ -15,10 +16,10 @@ import * as postcssPresetEnv from 'postcss-preset-env'
 
 // Create function Tagged Templates
 const style = createStyle({
-    plugins: [postcssPresetEnv({ stage: 0 })], // For example use postcss-preset-env
-    build(css) {
-        return `<style>${css}</style>`
-    }
+	plugins: [postcssPresetEnv({ stage: 0 })], // For example use postcss-preset-env
+	build(css) {
+		return `<style>${css}</style>`
+	}
 })
 
 const color = 'green'

@@ -1,45 +1,45 @@
 {
-  "name": "lit-style",
-  "version": "0.0.1",
-  "description": "PostCSS preprocessor for Tagged Templates",
-  "main": "build/index.js",
-  "files": [
+	"name": "lit-style",
+	"version": "0.0.1",
+	"description": "PostCSS preprocessor for Tagged Templates",
+	"main": "build/index.js",
+	"files": [
 		"build/"
 	],
-  "scripts": {
-    "test": "mocha **/*.test.js",
-    "pretest": "npm run build",
-    "build": "tsc -p ./",
-    "lint": "tslint --fix -p ./",
-    "format": "prettier --write '**/*.{json,md,yml}'",
-    "prepare": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aggre/lit-style.git"
-  },
-  "author": "aggre",
-  "contributors": [
-    "aggre <hiroyuki.aggre@gmail.com> (https://github.com/aggre)"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/aggre/lit-style/issues"
-  },
-  "homepage": "https://github.com/aggre/lit-style#readme",
-  "dependencies": {
-    "postcss": "^7.0.6",
-    "typescript": "^3.1.6"
-  },
-  "devDependencies": {
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.9",
-    "mocha": "^5.2.0",
-    "postcss-preset-env": "^6.4.0",
-    "prettier": "^1.15.2",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.16.0",
-    "tslint-plugin-prettier": "^2.0.1",
-    "tslint-xo": "^0.10.0"
-  }
+	"scripts": {
+		"test": "mocha **/*.test.js",
+		"pretest": "npm run build",
+		"build": "tsc -p ./",
+		"lint": "tslint --fix -p ./",
+		"format": "prettier --write '**/*.{json,md,yml}'",
+		"prepare": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aggre/lit-style.git"
+	},
+	"author": "aggre",
+	"contributors": [
+		"aggre <hiroyuki.aggre@gmail.com> (https://github.com/aggre)"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/aggre/lit-style/issues"
+	},
+	"homepage": "https://github.com/aggre/lit-style#readme",
+	"dependencies": {
+		"postcss": "^7.0.6",
+		"typescript": "^3.1.6"
+	},
+	"devDependencies": {
+		"@types/mocha": "^5.2.5",
+		"@types/node": "^10.12.9",
+		"mocha": "^5.2.0",
+		"postcss-preset-env": "^6.4.0",
+		"prettier": "^1.15.2",
+		"tslint": "^5.11.0",
+		"tslint-config-prettier": "^1.16.0",
+		"tslint-plugin-prettier": "^2.0.1",
+		"tslint-xo": "^0.10.0"
+	}
 }
