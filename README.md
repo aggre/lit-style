@@ -2,6 +2,8 @@
 
 PostCSS preprocessor for Tagged Templates
 
+[![Build Status](https://travis-ci.org/aggre/lit-style.svg?branch=master)](https://travis-ci.org/aggre/lit-style)
+
 ## Installation
 
 ```bash
@@ -14,9 +16,9 @@ npm i lit-style
 import { createStyle } from 'lit-style'
 import * as postcssPresetEnv from 'postcss-preset-env'
 
-// Create function Tagged Templates
+// Create Tagged Templates functions
 const style = createStyle({
-	plugins: [postcssPresetEnv({ stage: 0 })], // For example use postcss-preset-env
+	plugins: [postcssPresetEnv({ stage: 0 })], // For example, use postcss-preset-env
 	build(css) {
 		return `<style>${css}</style>`
 	}
@@ -24,7 +26,7 @@ const style = createStyle({
 
 const color = 'green'
 
-// 💅 Can use the result processed by PostCSS
+// 💅 Gets the result of processing by PostCSS
 export const body = async () => style`
     body {
         & a {
