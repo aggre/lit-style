@@ -53,4 +53,30 @@ describe('Writ css with Tagged Templates', () => {
             </style>`)
 		)
 	})
+
+	it('Transform async template', async () => {
+		const style = createStyle({
+			plugins: [postcssPresetEnv({ stage: 0 })],
+			build(css) {
+				return Promise.resolve(`<style>${css}</style>`)
+			}
+		})
+		const color = 'green'
+		const result = await style`
+            body {
+				& a {
+					color: ${color};
+				}
+            }
+        `
+		strictEqual(
+			format(result),
+			format(`
+            <style>
+				body a {
+					color: green;
+				}
+            </style>`)
+		)
+	})
 })
