@@ -4,7 +4,8 @@
 	"description": "PostCSS preprocessor for Tagged Templates",
 	"main": "index.js",
 	"files": [
-		"build/"
+		"*.js",
+		"*.d.ts"
 	],
 	"scripts": {
 		"test": "mocha **/*.test.js",
