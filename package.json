@@ -2,7 +2,7 @@
 	"name": "lit-style",
 	"version": "0.0.1",
 	"description": "PostCSS preprocessor for Tagged Templates",
-	"main": "build/index.js",
+	"main": "index.js",
 	"files": [
 		"build/"
 	],

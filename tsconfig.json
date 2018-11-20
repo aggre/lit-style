@@ -6,7 +6,7 @@
 		"allowSyntheticDefaultImports": true,
 		"strictNullChecks": true,
 		"declaration": true,
-		"outDir": "build",
+		"outDir": "./",
 		"module": "commonjs"
 	},
 	"include": ["src/**/*"],
