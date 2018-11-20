@@ -27,9 +27,9 @@ export const createStyle = <T>({ plugins = [], build }: Options<T>) => {
 		const key: [TemplateStringsArray, StyleValues] = [strings, values]
 		return cache.has(key)
 			? (cache.get(key) as T)
-			: (async processed => {
+			: (processed => {
 					const { css } = processed
-					const styleTemplate = await build(css)
+					const styleTemplate = build(css)
 					cache.set(key, styleTemplate)
 					return styleTemplate
 			  })(await transform(join(strings, values)))
