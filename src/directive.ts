@@ -1,11 +1,14 @@
-import { StyleResolver, StyleValues } from './create-style'
+import { StyleProcessor, StyleValues } from './process'
 
 type Handler<T> = (cssPromise: Promise<string>) => T
 
 const createCache = () =>
 	new WeakMap<[TemplateStringsArray, StyleValues], string>()
 
-export const directive = <T>(resolver: StyleResolver, handler: Handler<T>) => {
+export const directive = <T>(
+	processor: StyleProcessor,
+	handler: Handler<T>
+) => {
 	const cache = createCache()
 	return async (strings: TemplateStringsArray, ...values: StyleValues) => {
 		const key: [TemplateStringsArray, StyleValues] = [strings, values]
@@ -16,7 +19,7 @@ export const directive = <T>(resolver: StyleResolver, handler: Handler<T>) => {
 					const resolve = await unresolve
 					cache.set(key, resolve)
 					return resolve
-			  })(resolver(strings, ...values))
+			  })(processor(strings, ...values))
 		return handler(processed)
 	}
 }

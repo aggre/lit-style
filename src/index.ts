@@ -1,4 +1,4 @@
-import { createStyle } from './create-style'
+import { process } from './process'
 import { directive } from './directive'
 
-export { createStyle, directive }
+export { process, directive }

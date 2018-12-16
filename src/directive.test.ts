@@ -1,4 +1,4 @@
-import { createStyle } from './create-style'
+import { process } from './process'
 import { strictEqual } from 'assert'
 import { directive } from './directive'
 
@@ -6,7 +6,7 @@ const format = (s: string) => s.replace(/[\s\n]/g, '')
 
 describe('Directive', () => {
 	it('Handler', async () => {
-		const resolver = createStyle()
+		const resolver = process()
 		const style = directive(
 			resolver,
 			async css => `<style>${await css}</style>`

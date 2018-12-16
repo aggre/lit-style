@@ -2,7 +2,7 @@ import { AcceptedPlugin } from 'postcss'
 // tslint:disable-next-line:no-require-imports
 import postcss = require('postcss')
 
-export type StyleResolver = (
+export type StyleProcessor = (
 	strings: TemplateStringsArray,
 	...values: string[]
 ) => Promise<string>
@@ -19,7 +19,7 @@ interface Options {
 	plugins?: AcceptedPlugin[]
 }
 
-export const createStyle = ({ plugins = [] }: Options = {}): StyleResolver => {
+export const process = ({ plugins = [] }: Options = {}): StyleProcessor => {
 	const transform = async (css: string) =>
 		postcss(plugins).process(css, { from: `${Math.random()}` })
 	return async (strings: TemplateStringsArray, ...values: StyleValues) => {

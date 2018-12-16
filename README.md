@@ -13,11 +13,11 @@ npm i lit-style
 ## Usage
 
 ```ts
-import { createStyle } from 'lit-style'
+import { process } from 'lit-style'
 import * as postcssPresetEnv from 'postcss-preset-env'
 
 // Create Tagged Templates functions
-const style = createStyle({
+const style = process({
 	plugins: [postcssPresetEnv({ stage: 0 })] // For example, use postcss-preset-env
 })
 
@@ -42,14 +42,14 @@ body a {
 Controls return value type with `directive`
 
 ```ts
-import { createStyle, directive } from 'lit-style'
+import { process, directive } from 'lit-style'
 import * as postcssPresetEnv from 'postcss-preset-env'
 
-const resolver = createStyle({
+const processor = process({
 	plugins: [postcssPresetEnv({ stage: 0 })]
 })
 
-const style = directive(resolver, async css => `<style>${await css}</style>`)
+const style = directive(processor, async css => `<style>${await css}</style>`)
 
 const color = 'green'
 
