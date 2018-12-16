@@ -10,7 +10,7 @@ export const directive = <T>(
 	handler: Handler<T>
 ) => {
 	const cache = createCache()
-	return async (strings: TemplateStringsArray, ...values: StyleValues) => {
+	return (strings: TemplateStringsArray, ...values: StyleValues) => {
 		const key: [TemplateStringsArray, StyleValues] = [strings, values]
 		const c = cache.get(key)
 		const processed = c
