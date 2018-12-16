@@ -1,11 +1,12 @@
-import { AcceptedPlugin, Result } from 'postcss'
+import { AcceptedPlugin } from 'postcss'
 // tslint:disable-next-line:no-require-imports
 import postcss = require('postcss')
 
-type StyleValues = string[]
-
-const createCache = <T>() =>
-	new WeakMap<[TemplateStringsArray, StyleValues], T>()
+export type StyleResolver = (
+	strings: TemplateStringsArray,
+	...values: string[]
+) => Promise<string>
+export type StyleValues = string[]
 
 const join = (strings: TemplateStringsArray, values: StyleValues) =>
 	strings.reduce(
@@ -14,24 +15,15 @@ const join = (strings: TemplateStringsArray, values: StyleValues) =>
 		''
 	)
 
-interface Options<T> {
+interface Options {
 	plugins?: AcceptedPlugin[]
-	build(results: Result['css']): T
 }
 
-export const createStyle = <T>({ plugins = [], build }: Options<T>) => {
+export const createStyle = ({ plugins = [] }: Options = {}): StyleResolver => {
 	const transform = async (css: string) =>
 		postcss(plugins).process(css, { from: `${Math.random()}` })
-	const cache = createCache<T>()
 	return async (strings: TemplateStringsArray, ...values: StyleValues) => {
-		const key: [TemplateStringsArray, StyleValues] = [strings, values]
-		return cache.has(key)
-			? (cache.get(key) as T)
-			: (processed => {
-					const { css } = processed
-					const styleTemplate = build(css)
-					cache.set(key, styleTemplate)
-					return styleTemplate
-			  })(await transform(join(strings, values)))
+		const processed = await transform(join(strings, values))
+		return processed.css
 	}
 }
