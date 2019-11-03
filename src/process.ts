@@ -1,5 +1,4 @@
 import { AcceptedPlugin } from 'postcss'
-// Tslint:disable-next-line:no-require-imports
 import postcss = require('postcss')
 
 export type StyleProcessor = (
