@@ -2,7 +2,7 @@ import * as postcssPresetEnv from 'postcss-preset-env'
 import { process } from './process'
 import { strictEqual } from 'assert'
 
-const format = (s: string) => s.replace(/[\s\n]/g, '')
+const format = (s: string): string => s.replace(/[\s\n]/g, '')
 
 describe('Writ css with Tagged Templates', () => {
 	it('Use variables', async () => {

@@ -1,5 +1,5 @@
 import { AcceptedPlugin } from 'postcss'
-// tslint:disable-next-line:no-require-imports
+// Tslint:disable-next-line:no-require-imports
 import postcss = require('postcss')
 
 export type StyleProcessor = (
@@ -8,10 +8,16 @@ export type StyleProcessor = (
 ) => Promise<string>
 export type StyleValues = string[]
 
-const join = (strings: TemplateStringsArray, values: StyleValues) =>
+const join = (strings: TemplateStringsArray, values: StyleValues): string =>
 	strings.reduce(
 		(result, current, i) =>
-			`${result}${current}${values[i] ? `${values[i]}` : ''}`,
+			`${result}${current}${(() => {
+				if (values[i] === undefined) {
+					return ''
+				}
+
+				return `${values[i]}`
+			})()}`,
 		''
 	)
 
@@ -20,7 +26,7 @@ interface Options {
 }
 
 export const process = ({ plugins = [] }: Options = {}): StyleProcessor => {
-	const transform = async (css: string) =>
+	const transform = async (css: string): Promise<postcss.Result> =>
 		postcss(plugins).process(css, { from: `${Math.random()}` })
 	return async (strings: TemplateStringsArray, ...values: StyleValues) => {
 		const processed = await transform(join(strings, values))

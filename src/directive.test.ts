@@ -2,7 +2,7 @@ import { process } from './process'
 import { strictEqual } from 'assert'
 import { directive } from './directive'
 
-const format = (s: string) => s.replace(/[\s\n]/g, '')
+const format = (s: string): string => s.replace(/[\s\n]/g, '')
 
 describe('Directive', () => {
 	it('Handler', async () => {
