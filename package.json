@@ -1,5 +1,5 @@
 {
-	"name": "lit-style",
+	"name": "@aggre/lit-style",
 	"version": "1.1.2",
 	"description": "PostCSS preprocessor for Tagged Templates",
 	"main": "index.js",
@@ -45,5 +45,8 @@
 		"mocha": "^6.2.2",
 		"postcss-preset-env": "^6.7.0",
 		"prettier": "^1.18.2"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
 	}
 }
