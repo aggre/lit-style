@@ -29,7 +29,7 @@
 	},
 	"homepage": "https://github.com/aggre/lit-style#readme",
 	"dependencies": {
-		"postcss": "^7.0.21",
+		"postcss": "^8.2.10",
 		"typescript": "^3.6.4"
 	},
 	"devDependencies": {
